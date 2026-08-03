@@ -1,22 +1,7 @@
 import random
 import streamlit as st
 
-# Career quiz questions
-quiz_questions = {
-    "Do you enjoy solving puzzles?": "Scientist",
-    "Do you like helping others?": "Teacher",
-    "Do you enjoy drawing or painting?": "Artist",
-    "Do you love exploring nature?": "Biologist",
-    "Do you enjoy building things?": "Engineer",
-}
 
-profession_images = {
-    "Scientist": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Scientist.jpg",
-    "Teacher": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Teacher.jpg",
-    "Artist": "https://upload.wikimedia.org/wikipedia/commons/4/47/Artist.jpg",
-    "Biologist": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Biologist.jpg",
-    "Engineer": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Engineer.jpg",
-}
 
 # Chatbot intro
 st.title("🌟 PathPilot: Your Friendly Guide")
@@ -63,3 +48,35 @@ if st.button("Show Career Suggestion"):
         )
     else:
         st.info("No worries! Try answering 'Yes' to a few questions for a suggestion.")
+        import streamlit as st
+import random
+
+# Career Tab
+with tab2:
+    st.subheader("Career Tab – Discover Rare Careers")
+
+    # Pool of questions
+    questions_pool = [
+        "Do you enjoy solving puzzles and logical problems?",
+        "Would you like to explore space as an astronaut?",
+        "Do you prefer creating art or designing things?",
+        "Are you curious about how movies are made?",
+        "Do you enjoy helping people feel better?",
+        "Would you like to work with animals?",
+        "Do you enjoy experimenting with science?",
+        "Would you like to invent new technology?",
+        "Do you enjoy writing stories or scripts?",
+        "Would you like to explore the deep ocean?"
+    ]
+
+    # Randomly select 3 questions each time
+    selected_questions = random.sample(questions_pool, 3)
+
+    # Display questions
+    for i, q in enumerate(selected_questions, 1):
+        st.write(f"Q{i}: {q}")
+        st.radio("Your answer:", ["Yes", "No"], key=f"q{i}")
+
+    # Submit button
+    if st.button("Submit Quiz"):
+        st.success("🎉 Thanks! Based on your answers, PathPilot will suggest rare careers for you.")
